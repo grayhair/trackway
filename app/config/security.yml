@@ -8,10 +8,8 @@ security:
         ROLE_ADMIN:       ROLE_USER
 
     providers:
-        administrators:
-            entity: { class: AppBundle:User }
-        api_key_user_provider:
-            id: app.security.api_key_user_provider
+        app_user_provider:
+            id: app.repository.user_repository
 
     firewalls:
         dev:
@@ -21,8 +19,7 @@ security:
         api:
             pattern: ^/api
             stateless: true
-            simple_preauth:
-                authenticator: app.security.apikey_authenticator
+            api_key: true
         main:
             pattern: ^/
             form_login:

@@ -61,6 +61,10 @@ knp_menu:
 #ApiDoc Configuration
 nelmio_api_doc: ~
 
+uecode_api_key:
+    delivery: query #or header
+    parameter_name: apikey # defaults to `api_key`
+
 # Disable the default view annotations and set up the FOSRest response listener
 sensio_framework_extra:
     view:

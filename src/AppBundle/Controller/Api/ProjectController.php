@@ -84,20 +84,16 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
         $this->repo = $this->manager->getRepository('AppBundle:Project');
 
         $project = new Project();
-        $form = $this->get('app.form.factory.project')
-            ->createFormWithoutSubmit()
-            ->setData($project);
+        $form = $this->get('form.factory')->createNamed('', 'appbundle_project_form_type', $project);
 
-        $form->handleRequest($request);
+        $form = $form->handleRequest($request);
 
         if ($form->isValid()) {
+            $project->setTeam($this->getUser()->getActiveTeam());
             $this->manager->persist($project);
             $this->manager->flush();
 
-            return $this->redirectView(
-                $this->generateUrl('get_project', array('projectId' => $project->getId())),
-                Codes::HTTP_CREATED
-            );
+            return $this->view(null, Codes::HTTP_CREATED);
         }
 
         return array(

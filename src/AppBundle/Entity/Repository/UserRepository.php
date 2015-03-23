@@ -34,7 +34,36 @@ class UserRepository extends EntityRepository implements UserProviderInterface
      */
     public function findOneByApiKey($apiKey)
     {
-        return $this->findOneBy(['apiKey' => $apiKey]);
+        $user = $this->findOneBy(['apiKey' => $apiKey]);
+
+        $roles = $user->getRoles();
+        $roles[] = 'ROLE_API';
+
+        $user->setRoles($roles);
+
+        return $user;
+    }
+
+    /**
+     * Proxy for ApiKeyProvider
+     *
+     * @param $apiKey
+     *
+     * @return User
+     */
+    public function loadUserByApiKey($apiKey){
+        return $this->findOneByApiKey($apiKey);
+    }
+
+
+    /**
+     * @param string $apiKey
+     *
+     * @return User
+     */
+    public function findOneByUsername($username)
+    {
+        return $this->findOneBy(['username' => $username]);
     }
 
     /**

@@ -30,13 +30,5 @@
         <service id="app.repository.user_repository" class="Doctrine\ORM\EntityRepository" factory-service="doctrine.orm.default_entity_manager" factory-method="getRepository">
             <argument>AppBundle\Entity\User</argument>
         </service>
-
-        <service id="app.security.api_key_user_provider" class="AppBundle\Security\ApiKeyUserProvider">
-            <argument type="service" id="app.repository.user_repository" />
-        </service>
-
-        <service id="app.security.apikey_authenticator" class="AppBundle\Security\ApiKeyAuthenticator">
-            <argument type="service" id="app.security.api_key_user_provider"/>
-        </service>
     </services>
 </container>
