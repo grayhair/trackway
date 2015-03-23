@@ -28,6 +28,16 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     }
 
     /**
+     * @param string $apiKey
+     *
+     * @return User
+     */
+    public function findOneByApiKey($apiKey)
+    {
+        return $this->findOneBy(['apiKey' => $apiKey]);
+    }
+
+    /**
      * @param string $email
      *
      * @return User
@@ -75,6 +85,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         }
 
         /** @var User $user */
+
         return $this->find($user->getId());
     }
 

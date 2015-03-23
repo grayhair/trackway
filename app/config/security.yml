@@ -10,12 +10,19 @@ security:
     providers:
         administrators:
             entity: { class: AppBundle:User }
+        api_key_user_provider:
+            id: app.security.api_key_user_provider
 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt|error)|css|fonts|images|js)/
             security: false
 
+        api:
+            pattern: ^/api
+            stateless: true
+            simple_preauth:
+                authenticator: app.security.apikey_authenticator
         main:
             pattern: ^/
             form_login:

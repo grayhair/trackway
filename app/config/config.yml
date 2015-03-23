@@ -68,6 +68,7 @@ sensio_framework_extra:
 
 # FosRestBundle Configuration
 fos_rest:
+    disable_csrf_role: ROLE_API
     param_fetcher_listener: true
     body_listener: true
     format_listener: true

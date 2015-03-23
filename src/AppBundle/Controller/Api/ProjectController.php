@@ -4,10 +4,8 @@ namespace AppBundle\Controller\Api;
 
 use AppBundle\Entity\Project;
 use AppBundle\Entity\Repository\ProjectRepository;
-use AppBundle\Entity\Team;
 use AppBundle\Entity\User;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
 use FOS\RestBundle\Controller\Annotations\View;
 use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Routing\ClassResourceInterface;
@@ -26,12 +24,6 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
      */
     private $repo;
 
-    function __construct()
-    {
-        $this->manager = $this->getDoctrine()->getManager();
-        $this->repo = $this->manager->getRepository('AppBundle:Project');
-    }
-
 
     /**
      * @return array
@@ -44,6 +36,9 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
      */
     public function cgetAction()
     {
+        $this->manager = $this->getDoctrine()->getManager();
+        $this->repo = $this->manager->getRepository('AppBundle:Project');
+
         /** @var User $user */
         $user = $this->getUser();
         $projects = $this->repo->findByTeam($user->getActiveTeam());
@@ -64,6 +59,9 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
      */
     public function getAction($projectId)
     {
+        $this->manager = $this->getDoctrine()->getManager();
+        $this->repo = $this->manager->getRepository('AppBundle:Project');
+
         return array(
             'project' => $this->repo->find($projectId),
         );
@@ -82,7 +80,29 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
      */
     public function postAction(Request $request)
     {
+        $this->manager = $this->getDoctrine()->getManager();
+        $this->repo = $this->manager->getRepository('AppBundle:Project');
 
+        $project = new Project();
+        $form = $this->get('app.form.factory.project')
+            ->createFormWithoutSubmit()
+            ->setData($project);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $this->manager->persist($project);
+            $this->manager->flush();
+
+            return $this->redirectView(
+                $this->generateUrl('get_project', array('projectId' => $project->getId())),
+                Codes::HTTP_CREATED
+            );
+        }
+
+        return array(
+            'form' => $form
+        );
     }
 
     /**

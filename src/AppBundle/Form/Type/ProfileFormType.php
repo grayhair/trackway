@@ -21,6 +21,7 @@ class ProfileFormType extends AbstractOverridableFormType
     {
         $builder->add('email', 'email', $this->overrideOptions('email', ['label' => 'user.entity.email', 'required' => true], $options))
             ->add('locale', 'entity', $this->overrideOptions('locale', ['label' => 'user.entity.locale', 'class' => 'AppBundle\Entity\Locale'], $options))
+            ->add('apiKey', 'text', $this->overrideOptions('apikey', ['label' => 'user.entity.apikey'], $options))
             ->add('activeTeam',
                 'entity',
                 $this->overrideOptions('activeTeam', ['label' => 'user.entity.activeTeam', 'class' => 'AppBundle\Entity\Team'], $options))

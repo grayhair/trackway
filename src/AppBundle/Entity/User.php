@@ -135,6 +135,13 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected $activeTeam;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apiKey", type="string", length=255, unique=true, nullable=true)
+     */
+    protected $apiKey;
+
     public function __construct()
     {
         $this->roles = [];
@@ -422,4 +429,21 @@ class User implements AdvancedUserInterface, \Serializable
     {
         $this->activeTeam = $activeTeam;
     }
+
+    /**
+     * @return string
+     */
+    public function getApiKey()
+    {
+        return $this->apiKey;
+    }
+
+    /**
+     * @param string $apiKey
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
+    }
+
 }
