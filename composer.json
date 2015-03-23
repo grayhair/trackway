@@ -1,74 +1,77 @@
 {
-
-    "name": "trackway/trackway",
-    "license": "MIT",
-    "type": "project",
-    "description": "The simple on-premise open source time tracker.",
-    "autoload": {
-        "psr-0": { "": "src/", "SymfonyStandard": "app/" }
-    },
-    " minimum-stability": "dev",
-    "require": {
-        "php": ">=5.5",
-        "symfony/symfony": "2.6.*",
-        "doctrine/orm": "2.4.*",
-        "doctrine/dbal": "2.4.*",
-        "doctrine/doctrine-bundle": "1.4.*",
-        "twig/extensions": "1.2.*",
-        "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.7.*",
-        "sensio/distribution-bundle": "3.0.*",
-        "sensio/framework-extra-bundle": "3.0.*",
-        "incenteev/composer-parameter-handler": "2.1.*",
-        "knplabs/knp-menu-bundle": "2.0.*",
-        "knplabs/knp-paginator-bundle": "2.4.*",
-
-    
-    "friendsofsymfony/rest-bundle": "~1.5",
-
-    
-    "jms/serializer-bundle": "0.13.*",
-
-    
-    "nelmio/api-doc-bundle": "~2.8"
-    },
-    "require-dev": {
-        "sensio/generator-bundle": "2.5.*",
-        "phpunit/phpunit": "4.5.*",
-        "matthiasnoback/symfony-dependency-injection-test": "0.7.*",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "liip/functional-test-bundle": "1.0.*"
-    },
-    "scripts": {
-        "post-root-package-install": [
-            "SymfonyStandard\\Composer::hookRootPackageInstall"
-        ],
-        "post-install-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-        ],
-        "post-update-cmd": [
-            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
-            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
-        ]
-    },
-    "config": {
-        "bin-dir": "bin"
-    },
-    "extra": {
-        "symfony-app-dir": "app",
-        "symfony-web-dir": "web",
-        "symfony-assets-install": "relative",
-        "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
-        }
+  "name": "trackway/trackway",
+  "license": "MIT",
+  "type": "project",
+  "description": "The simple on-premise open source time tracker.",
+  "autoload": {
+    "psr-0": {
+      "": "src/",
+      "SymfonyStandard": "app/"
     }
+  },
+  " minimum-stability": "dev",
+  "require": {
+    "php": ">=5.5",
+    "symfony/symfony": "2.6.*",
+    "doctrine/orm": "2.4.*",
+    "doctrine/dbal": "2.4.*",
+    "doctrine/doctrine-bundle": "1.4.*",
+    "twig/extensions": "1.2.*",
+    "symfony/swiftmailer-bundle": "2.3.*",
+    "symfony/monolog-bundle": "2.7.*",
+    "sensio/distribution-bundle": "3.0.*",
+    "sensio/framework-extra-bundle": "3.0.*",
+    "incenteev/composer-parameter-handler": "2.1.*",
+    "knplabs/knp-menu-bundle": "2.0.*",
+    "knplabs/knp-paginator-bundle": "2.4.*",
+    "friendsofsymfony/rest-bundle": "~1.5",
+    "jms/serializer-bundle": "0.13.*",
+    "nelmio/api-doc-bundle": "~2.8",
+    "uecode/api-key-bundle": "dev-master"
+  },
+  "require-dev": {
+    "sensio/generator-bundle": "2.5.*",
+    "phpunit/phpunit": "4.5.*",
+    "matthiasnoback/symfony-dependency-injection-test": "0.7.*",
+    "doctrine/doctrine-fixtures-bundle": "2.2.*",
+    "liip/functional-test-bundle": "1.0.*"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/FlxPeters/api-key-bundle.git"
+    }
+  ],
+  "scripts": {
+    "post-root-package-install": [
+      "SymfonyStandard\\Composer::hookRootPackageInstall"
+    ],
+    "post-install-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+    ],
+    "post-update-cmd": [
+      "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::removeSymfonyStandardFiles"
+    ]
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-web-dir": "web",
+    "symfony-assets-install": "relative",
+    "incenteev-parameters": {
+      "file": "app/config/parameters.yml"
+    }
+  }
 }

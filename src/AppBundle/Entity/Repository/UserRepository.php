@@ -36,10 +36,11 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     {
         $user = $this->findOneBy(['apiKey' => $apiKey]);
 
+        // Add ROLE_API to disable CSRF protection on API
         $roles = $user->getRoles();
         $roles[] = 'ROLE_API';
 
-        $user->setRoles($roles);
+        $user->setRoles(array_unique($roles));
 
         return $user;
     }
