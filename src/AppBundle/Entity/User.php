@@ -6,14 +6,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Uecode\Bundle\ApiKeyBundle\ApiKeyUserInterface;
 
 /**
  * User
  *
  * @ORM\Table(name="users")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks
  */
-class User implements AdvancedUserInterface, \Serializable
+class User implements AdvancedUserInterface, \Serializable, ApiKeyUserInterface
 {
     /**
      * @var integer

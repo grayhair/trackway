@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0c8fb9f3d977030a48dbf1bee8a4c28a",
+    "hash": "4dc80c288ccc3138636b4a50d44eb3f6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1878,17 +1878,17 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.5",
+            "version": "v3.0.6",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "a72ce75a73d86c3593eceed5650b58fd3807a0cf"
+                "reference": "1c3ed356bd1ff67cd71806efbb71511644035c85"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/a72ce75a73d86c3593eceed5650b58fd3807a0cf",
-                "reference": "a72ce75a73d86c3593eceed5650b58fd3807a0cf",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/1c3ed356bd1ff67cd71806efbb71511644035c85",
+                "reference": "1c3ed356bd1ff67cd71806efbb71511644035c85",
                 "shasum": ""
             },
             "require": {
@@ -1929,7 +1929,7 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2015-02-05 07:39:23"
+            "time": "2015-03-24 15:12:07"
         },
         {
             "name": "sensiolabs/security-checker",
@@ -2369,49 +2369,6 @@
                 "templating"
             ],
             "time": "2015-01-25 17:32:08"
-        },
-        {
-            "name": "uecode/api-key-bundle",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FlxPeters/api-key-bundle.git",
-                "reference": "a7e5851a8e68c026aa862e5ea8501eb735ce1f70"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FlxPeters/api-key-bundle/zipball/a7e5851a8e68c026aa862e5ea8501eb735ce1f70",
-                "reference": "a7e5851a8e68c026aa862e5ea8501eb735ce1f70",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0",
-                "symfony/symfony": ">=2.3.0"
-            },
-            "suggest": {
-                "friendsofsymfony/user-bundle": "Allows you to use FosUserBundle with ApiKey Support"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Uecode\\Bundle\\ApiKeyBundle": "src/"
-                }
-            },
-            "license": [
-                "Apache 2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Aaron Scherer",
-                    "email": "aequasi@gmail.com"
-                }
-            ],
-            "description": "Creates an avenue for using ApiKey authentication for Symfony2.",
-            "support": {
-                "source": "https://github.com/FlxPeters/api-key-bundle/tree/master",
-                "issues": "https://github.com/FlxPeters/api-key-bundle/issues"
-            },
-            "time": "2015-03-23 20:04:08"
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -3768,13 +3725,54 @@
             ],
             "description": "This bundle generates code for you",
             "time": "2015-03-17 06:36:52"
+        },
+        {
+            "name": "uecode/api-key-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FlxPeters/api-key-bundle.git",
+                "reference": "a7e5851a8e68c026aa862e5ea8501eb735ce1f70"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FlxPeters/api-key-bundle/zipball/a7e5851a8e68c026aa862e5ea8501eb735ce1f70",
+                "reference": "a7e5851a8e68c026aa862e5ea8501eb735ce1f70",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "symfony/symfony": ">=2.3.0"
+            },
+            "suggest": {
+                "friendsofsymfony/user-bundle": "Allows you to use FosUserBundle with ApiKey Support"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Uecode\\Bundle\\ApiKeyBundle": "src/"
+                }
+            },
+            "license": [
+                "Apache 2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Aaron Scherer",
+                    "email": "aequasi@gmail.com"
+                }
+            ],
+            "description": "Creates an avenue for using ApiKey authentication for Symfony2.",
+            "support": {
+                "source": "https://github.com/FlxPeters/api-key-bundle/tree/master",
+                "issues": "https://github.com/FlxPeters/api-key-bundle/issues"
+            },
+            "time": "2015-03-23 20:04:08"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "uecode/api-key-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

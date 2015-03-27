@@ -54,6 +54,7 @@ class ProfileController extends Controller
                 'submit' => ['label' => 'profile.template.edit.submit']])->setData($user)->handleRequest($request);
 
         if ($form->isValid()) {
+            $this->getDoctrine()->getManager()->persist($user);
             $this->getDoctrine()->getManager()->flush();
 
             // TODO: Maybe putting it in a event listener?

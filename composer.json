@@ -26,8 +26,7 @@
     "knplabs/knp-paginator-bundle": "2.4.*",
     "friendsofsymfony/rest-bundle": "~1.5",
     "jms/serializer-bundle": "0.13.*",
-    "nelmio/api-doc-bundle": "~2.8",
-    "uecode/api-key-bundle": "dev-master"
+    "nelmio/api-doc-bundle": "~2.8"
   },
   "require-dev": {
     "sensio/generator-bundle": "2.5.*",
@@ -36,12 +35,6 @@
     "doctrine/doctrine-fixtures-bundle": "2.2.*",
     "liip/functional-test-bundle": "1.0.*"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/FlxPeters/api-key-bundle.git"
-    }
-  ],
   "scripts": {
     "post-root-package-install": [
       "SymfonyStandard\\Composer::hookRootPackageInstall"

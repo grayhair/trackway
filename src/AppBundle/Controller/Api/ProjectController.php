@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ProjectController extends FOSRestController implements ClassResourceInterface
 {
-
     /** @var EntityManager */
     private $manager;
 
@@ -23,7 +22,6 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
      * @var ProjectRepository
      */
     private $repo;
-
 
     /**
      * @return array
@@ -114,7 +112,24 @@ class ProjectController extends FOSRestController implements ClassResourceInterf
      */
     public function putAction(Request $request, $projectId)
     {
+        $this->manager = $this->getDoctrine()->getManager();
+        $this->repo = $this->manager->getRepository('AppBundle:Project');
 
+        $project = $this->repo->find($projectId);
+        $form = $this->get('form.factory')->createNamed('', 'appbundle_project_form_type', $project, array('method' => 'PUT'));
+        $form = $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $project->setTeam($this->getUser()->getActiveTeam());
+            $this->manager->persist($project);
+            $this->manager->flush();
+
+            return $this->view(null, Codes::HTTP_NO_CONTENT);
+        }
+
+        return array(
+            'form' => $form
+        );
     }
 
     /**
