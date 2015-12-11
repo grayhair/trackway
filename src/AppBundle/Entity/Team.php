@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation\ReportDimension;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,6 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="teams")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\TeamRepository")
+ *
+ * @ReportDimension(name="team")
  */
 class Team
 {

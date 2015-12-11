@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation\ReportDimension;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -10,6 +11,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="tasks")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\TaskRepository")
+ *
+ * @ReportDimension(name="task")
  */
 class Task
 {

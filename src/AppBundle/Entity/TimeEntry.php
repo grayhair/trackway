@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation\ReportDimension;
+use AppBundle\Annotation\ReportFilter;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="timeEntries")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\TimeEntryRepository")
+ *
+ * @ReportDimension(name="timeEntry")
  */
 class TimeEntry extends BaseTimeEntry
 {
@@ -17,6 +21,8 @@ class TimeEntry extends BaseTimeEntry
      *
      * @ORM\ManyToOne(targetEntity="Project")
      * @ORM\JoinColumn(name="project_id", referencedColumnName="id")
+     *
+     * @ReportFilter(name = "Project")
      */
     protected $project;
 
@@ -25,6 +31,8 @@ class TimeEntry extends BaseTimeEntry
      *
      * @ORM\ManyToOne(targetEntity="Task")
      * @ORM\JoinColumn(name="task_id", referencedColumnName="id")
+     *
+     * @ReportFilter(name = "Task")
      */
     protected $task;
 

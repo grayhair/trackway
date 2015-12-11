@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation\ReportFilter;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -17,6 +18,8 @@ class DateTimeRange
      *
      * @Assert\NotNull()
      * @Assert\Type(type="\DateTime")
+     *
+     * @ReportFilter(name = "Date")
      */
     protected $date;
 
@@ -24,6 +27,8 @@ class DateTimeRange
      * @var \DateTime
      *
      * @ORM\Column(name="endsAt", type="time")
+     *
+     * @ReportFilter(name = "Ends At")
      */
     protected $endsAt;
 
@@ -31,6 +36,8 @@ class DateTimeRange
      * @var \DateTime
      *
      * @ORM\Column(name="startsAt", type="time")
+     *
+     * @ReportFilter(name = "Starts At")
      */
     protected $startsAt;
 

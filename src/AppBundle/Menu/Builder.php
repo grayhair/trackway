@@ -71,9 +71,9 @@ class Builder
                 $menu['main']->addChild('calendar', [
                     'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
                     'route' => 'calendar_index']);
-                $menu['main']->addChild('reports', [
+                $menu['main']->addChild('report', [
                     'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
-                    'route' => 'timeentry_report']);
+                    'route' => 'report_new']);
                 $menu['main']->addChild('project', [
                     'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
                     'route' => 'project_index']);
@@ -82,6 +82,10 @@ class Builder
                     'route' => 'task_index']);
 
                 // Create actions without context
+                $menu['main']['report']->addChild('reports.index', [
+                    'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
+                    'icon' => 'fa fa-fw fa-list',
+                    'route' => 'report_new']);
                 $menu['main']['project']->addChild('project.index', [
                     'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
                     'icon' => 'fa fa-fw fa-list',
@@ -90,15 +94,6 @@ class Builder
                     'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
                     'icon' => 'fa fa-fw fa-list',
                     'route' => 'task_index']);
-
-                $menu['main']['reports']->addChild('reports.timeentry', [
-                    'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
-                    'icon' => 'fa fa-fw fa-list',
-                    'route' => 'timeentry_report']);
-                $menu['main']['reports']->addChild('reports.absence', [
-                    'template' => 'AppBundle:Menu/Sidebar:item.html.twig',
-                    'icon' => 'fa fa-fw fa-list',
-                    'route' => 'absence_report']);
 
                 if ($isTeamAdmin) {
                     $menu['main']['project']->addChild('project.new', [

@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation\ReportFilter;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -18,6 +19,8 @@ class BaseTimeEntry
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
+     * @ReportFilter(name = "ID")
      */
     protected $id;
 
@@ -26,6 +29,8 @@ class BaseTimeEntry
      *
      * @ORM\ManyToOne(targetEntity="Team")
      * @ORM\JoinColumn(name="team_id", referencedColumnName="id")
+     *
+     * @ReportFilter(name = "Team")
      */
     protected $team;
 
@@ -34,6 +39,8 @@ class BaseTimeEntry
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     *
+     * @ReportFilter(name = "User")
      */
     protected $user;
 
@@ -44,6 +51,8 @@ class BaseTimeEntry
      *
      * @Assert\NotNull()
      * @Assert\Length(max = 255)
+     *
+     * @ReportFilter(name = "Note")
      */
     protected $note;
 
@@ -51,6 +60,8 @@ class BaseTimeEntry
      * @var DateTimeRange
      *
      * @ORM\Embedded(class = "DateTimeRange", columnPrefix=false)
+     *
+     * @ReportFilter(name = "Date Range", type="AppBundle\Entity\DateTimeRange")
      */
     protected $dateTimeRange;
 

@@ -15,7 +15,7 @@
          */
         init: function () {
             var self = this;
-            self.settings.statisticsUrl = Routing.generate('statistics');
+            self.settings.statisticsUrl = Routing.generate('calendar_statistics');
 
             if (this.settings.startDate == null) {
                 jQuery.error('Required setting "startDate" can not be empty');

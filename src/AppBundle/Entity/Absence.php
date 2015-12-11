@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation\ReportDimension;
+use AppBundle\Annotation\ReportFilter;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -10,6 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="absences")
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\AbsenceRepository")
+ *
+ * @ReportDimension(name="absence")
  */
 class Absence extends BaseTimeEntry
 {
@@ -21,6 +25,8 @@ class Absence extends BaseTimeEntry
      *
      * @Assert\NotNull()
      * @Assert\Type(type="AppBundle\Entity\AbsenceReason")
+     *
+     * @ReportFilter(name = "Reason")
      */
     protected $reason;
 

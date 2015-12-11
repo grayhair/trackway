@@ -1,0 +1,11 @@
+{% extends "AppBundle::layoutSidebar.html.twig" %}
+
+{% block class %}report{% endblock class %}
+
+{% block header %}
+    <h1>{{ 'report.template.new.title'|trans }}</h1>
+{% endblock %}
+
+{% block content %}
+    {{ dump(data) }}
+{% endblock %}
